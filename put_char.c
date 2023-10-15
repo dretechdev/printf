@@ -1,6 +1,7 @@
 #include "main.h"
 
-/* put_char - prints
+/**
+ * put_char - printsi
  * @c: input
  * Return: 0
  */
