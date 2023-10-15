@@ -1,7 +1,7 @@
 #include "main.h"
 #include <unistd.h>
+#include <stdio.h>
 #include <stdarg.h>
-
 /**
  * _printf - Printf function
  * @format: format.
@@ -23,18 +23,18 @@ int _printf(const char *format, ...)
 		{
 			put_char(format[i]);
 		}
-		if (format[i] == '%' && format[i + 1] == 'c')
+		else if (format[i + 1] == 'c')
 		{
 			put_char(va_arg(list, int));
 			i++;
 		}
-		if (format[i] == '%' && format[i + 1] == 's')
+		else if (format[i + 1] == 's')
 		{
 			leng2 = put_c(va_arg(list, char *));
 			i++;
 			leng += (leng2 - 1);
 		}
-		if (format[i] == '%' && format[i + 1] == '%')
+		else if (format[i + 1] == '%')
 		{
 			put_char('%');
 		}
@@ -44,4 +44,3 @@ int _printf(const char *format, ...)
 	va_end(list);
 	return (leng);
 }
-
