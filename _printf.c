@@ -1,7 +1,4 @@
 #include "main.h"
-#include <unistd.h>
-#include <stdio.h>
-#include <stdarg.h>
 /**
  * _printf - Printf function
  * @format: format.
