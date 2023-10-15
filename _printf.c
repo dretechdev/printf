@@ -30,7 +30,7 @@ int _printf(const char *format, ...)
 		}
 		if (format[i] == '%' && format[i + 1] == 's')
 		{
-			leng2 = put_c(va_arg(list, char*));
+			leng2 = put_c(va_arg(list, char *));
 			i++;
 			leng += (leng2 - 1);
 		}
