@@ -9,30 +9,39 @@
  */
 int _printf(const char *format, ...)
 {
-	int i, printed = 0, printed_chars = 0;
+	unsigned int i, leng = 0, leng2 = 0;
 	va_list list;
 
-	if (format == NULL)
-		return (-1);
+	/*if (format == NULL)*/
+		/*return (-1);*/
 
 	va_start(list, format);
 
-	for (i = 0; format && format[i] != '\0'; i++)
+	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] != '%')
 		{
-			write(1, &format[i], 1);
-			printed_chars++;
+			put_char(format[i]);
 		}
-		else
+		if (format[i] == '%' && format[i + 1] == 'c')
 		{
-			++i;
-			if (printed == -1)
-				return (-1);
-			printed_chars += printed;
+			put_char(va_arg(list, int));
+			i++;
 		}
+		if (format[i] == '%' && format[i + 1] == 's')
+		{
+			leng2 = put_c(va_arg(list, char*));
+			i++;
+			leng += (leng2 - 1);
+		}
+		if (format[i] == '%' && format[i + 1] == '%')
+		{
+			put_char('%');
+		}
+
+		leng += 1;
 	}
 	va_end(list);
-	return (printed_chars);
+	return (leng);
 }
 
