@@ -1,54 +1,38 @@
 #include "main.h"
-#include <stdarg.h>
-#include <stdio.h>
 #include <unistd.h>
+#include <stdarg.h>
 
 /**
- * _printf - produces output according to a format
- * @format: string
- * @...: takes multiple arguments
- * Return: tne number of character printed
+ * _printf - Printf function
+ * @format: format.
+ * Return: Printed chars.
  */
-
 int _printf(const char *format, ...)
 {
-	char *str, c;
-	int i = 0, leng;
-
-	va_list(list);
+	int i, printed = 0, printed_chars = 0;
+	va_list list;
 
 	if (format == NULL)
 		return (-1);
+
 	va_start(list, format);
-	while (*format)
+
+	for (i = 0; format && format[i] != '\0'; i++)
 	{
-		if (*format != '%')
+		if (format[i] != '%')
 		{
-			write(1, format, 1);
-			i++;
+			write(1, &format[i], 1);
+			printed_chars++;
 		}
 		else
 		{
-			format++;
-			if (*format == '\0')
-				break;
-			if (*format == '%')
-				write(1, format, 1);
-				i++;
-			else if (*format == 'c')
-				c = va_arg(list, int);
-				write(1, &c, 1);
-				i++;
-			else if (*format == 's')
-				str = va_arg(list, char*);
-				leng = 0;
-				while (str[leng] != '\0')
-					leng++;
-				write(1, str, leng);
-				i += leng;
+			++i;
+			if (printed == -1)
+				return (-1);
+			printed_chars += printed;
 		}
-		format++;
 	}
 	va_end(list);
-	return (i);
+	return (printed_chars);
 }
+
