@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * prinf_out_percentage - This functon prints out the percentage symbol
+ * printf_out_percentage - This functon prints out the percentage symbol
  *
  * Return: An integer for success
  */

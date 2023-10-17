@@ -10,7 +10,13 @@
 int _printf(const char *format, ...)
 {
 	match m[] = {
-		{"%c", printf_out_character}, {"%s", printf_out_string}, {"%%", printf_out_percentage}, {"%d", printf_out_decimal}, {"%i", printf_out_integer}, {"%r", printf_out_reverse_string}, {"%R", printf_out_rot13}, {"%b", printf_out_binary}, {"%u", printf_out_unsigned}, {"%o", printf_out_octa}, {"%x", printf_out_hex}, {"%X", printf_out_HEX}, {"%S", printf_ex_string}, {"%p", printf_out_pointer}
+		{"%c", printf_out_character}, {"%s", printf_out_string},
+		{"%%", printf_out_percentage}, {"%d", printf_out_decimal},
+		{"%i", printf_out_integer}, {"%r", printf_out_reverse_string},
+		{"%R", printf_out_rot13}, {"%b", printf_out_binary},
+		{"%u", printf_out_unsigned}, {"%o", printf_out_octa},
+		{"%x", printf_out_hex}, {"%X", printf_out_HEX},
+		{"%S", printf_ex_string}, {"%p", printf_out_pointer}
 	};
 
 	va_list args;
@@ -22,7 +28,7 @@ int _printf(const char *format, ...)
 		return (-1);
 
 Here:
-	while (format[i] == '\0')
+	while (format[i] != '\0')
 	{
 		v = 13;
 		while (v >= 0)

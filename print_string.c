@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * printf_out__string - This function prints out a string
+ * printf_out_string - This function prints out a string
  * @value: This is the argument passed
  *
  * Return: This function returns the length of the string
