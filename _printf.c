@@ -1,12 +1,9 @@
 #include "main.h"
-
 /**
  * _printf - This function is for printf
  * @format: This is the identifier to look for
- *
  * Return: An integer
  */
-
 int _printf(const char *format, ...)
 {
 	match m[] = {
@@ -20,8 +17,7 @@ int _printf(const char *format, ...)
 	};
 
 	va_list args;
-	int i = 0, length = 0;
-	int v;
+	int i = 0, v, length = 0;
 
 	va_start(args, format);
 	if (format == NULL || (format[0] == '%' && format[1] == '\0'))

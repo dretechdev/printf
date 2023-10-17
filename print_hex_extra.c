@@ -28,7 +28,7 @@ int print_hex_extra(unsigned long int number)
 	for (i = counter - 1; i >= 0; i--)
 	{
 		if (array[i] > 9)
-			array[i] = array[i] + 7;
+			array[i] = array[i] + 39;
 		_putchar(array[i] + '0');
 	}
 	free(array);

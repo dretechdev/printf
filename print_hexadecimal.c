@@ -27,7 +27,7 @@ int printf_out_hex(va_list val)
 	}
 	for (i = counter - 1; i >= 0; i--)
 	{
-		if (array[i] > 9)
+		if (array[i] > 0)
 			array[i] = array[i] + 39;
 		_putchar(array[i] + '0');
 	}
